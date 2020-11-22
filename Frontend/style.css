@@ -1,0 +1,33 @@
+html,
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+
+td {
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid black;
+}
+
+td {
+    font-size:120px;
+  text-align: center;
+}
+
+button {
+    width:250px;
+    margin:auto;
+    margin-top:5rem;
+}
