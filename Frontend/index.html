@@ -10,8 +10,16 @@
 
     <body>
         <div id="tictactoe"></div>
-
+        <div id="overlay">
+            <div id="playerOne">Player one has won!
+                <button onclick="closeOverlay('playerOne')">Confirm</button>
+            </div>
+            <div id="playerTwo">Player two has won!
+                <button onclick="closeOverlay('playerTwo')">Confirm</button>
+            </div>
+        </div>
         <button onclick="SetNewGame()">Restart</button>
+        <div id="log"></div>
         <script src="./script.js"></script>
     </body>
 
