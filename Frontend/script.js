@@ -69,6 +69,18 @@ function CheckWinner(values) {
             SetNewGame();
         }
     })
+
+    //Checks for draw
+    let checkDraw = 0;
+    for (let i = 0; i < 9; i++) {
+        if (document.getElementById(i).innerHTML) checkDraw++;
+    }
+    if (checkDraw === 9) {
+        document.getElementById('overlay').style.display = "flex";
+        document.getElementById('draw').style.display = "flex";
+        sendAction('draw');
+        SetNewGame();
+    }
 }
 
 function SetNewGame() {
@@ -146,6 +158,9 @@ function getAction(move, player, sign) {
             break;
         case 'new':
             action = `New game has begun!`
+            break;
+        case 'draw':
+            action = `It's a draw`
             break;
     }
     return action;
