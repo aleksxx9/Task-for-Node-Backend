@@ -100,6 +100,18 @@ function getLog() {
 }
 
 function sendAction(move, player, sign) {
+    let action = getAction(move, player, sign);
+
+    fetch('http://localhost:3000/post', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({"action": action})
+    })
+
+    getLog();
+}
+
+function getAction (move, player, sign) {
     let action;
     switch (move) {
         case '0':
@@ -135,13 +147,6 @@ function sendAction(move, player, sign) {
         case 'new':
             action = `New game has begun!`
             break;
-    }
-
-    fetch('http://localhost:3000/post', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({"action": action})
-    })
-
-    getLog();
+        }
+        return action;
 }

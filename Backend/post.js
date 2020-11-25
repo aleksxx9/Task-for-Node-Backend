@@ -5,7 +5,7 @@ router.post("/", async (req, res) => {
     const action = new Action({ action: req.body.action, date: new Date() });
     try {
         await action.save();
-        res.send(action);
+        res.status(200).send(action);
     }
     catch (e) {
         res.status(400).send(e);
