@@ -87,7 +87,7 @@ function closeOverlay(name) {
 }
 
 function getLog() {
-    fetch('http://localhost:3000/get')
+    fetch('https://aleksxx9-tic-tac-toe.herokuapp.com/get')
         .then(res => res.json())
         .then(data => {
             const log = document.getElementById('log');
@@ -102,16 +102,16 @@ function getLog() {
 function sendAction(move, player, sign) {
     let action = getAction(move, player, sign);
 
-    fetch('http://localhost:3000/post', {
+    fetch('https://aleksxx9-tic-tac-toe.herokuapp.com/post', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({"action": action})
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ "action": action })
     })
 
     getLog();
 }
 
-function getAction (move, player, sign) {
+function getAction(move, player, sign) {
     let action;
     switch (move) {
         case '0':
@@ -147,6 +147,6 @@ function getAction (move, player, sign) {
         case 'new':
             action = `New game has begun!`
             break;
-        }
-        return action;
+    }
+    return action;
 }
