@@ -111,10 +111,10 @@ function getLog() {
         })
 }
 
-function sendAction(move, player, sign) {
+async function sendAction(move, player, sign) {
     let action = getAction(move, player, sign);
 
-    fetch('https://aleksxx9-tic-tac-toe.herokuapp.com/post', {
+    await fetch('https://aleksxx9-tic-tac-toe.herokuapp.com/post', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ "action": action })
